@@ -25,7 +25,7 @@ abstract class BaseBottomSheetDialog<VM: BaseViewModel, VB: ViewBinding>(
             val d = it as BottomSheetDialog
             val bottomSheetInternal = d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             val behavior = BottomSheetBehavior.from(bottomSheetInternal!!)
-            behavior.isFitToContents = false
+//            behavior.isFitToContents = false
             behavior.halfExpandedRatio = 0.4f
             behavior.skipCollapsed = true
             behavior.state = expandState

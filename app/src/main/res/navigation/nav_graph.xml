@@ -55,4 +55,22 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/friends_dest"
+        android:name="com.raxors.photobooth.ui.friends.FriendListFragment"
+        tools:layout="@layout/fragment_friends">
+
+        <action
+            android:id="@+id/to_search"
+            app:destination="@+id/search_dest" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_dest"
+        android:name="com.raxors.photobooth.ui.search.SearchFragment"
+        tools:layout="@layout/fragment_search">
+
+    </fragment>
+
 </navigation>

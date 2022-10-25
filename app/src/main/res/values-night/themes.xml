@@ -3,5 +3,6 @@
     <style name="Base.Theme.PhotoBooth" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="bottomSheetDialogTheme">@style/BottomSheetTheme</item>
     </style>
 </resources>

@@ -1,15 +1,13 @@
-package com.raxors.photobooth.ui.friends.incoming.adapter
+package com.raxors.photobooth.ui.friends.outgoing.adapter
 
 import com.raxors.photobooth.base.adapter.BasePagingAdapter
 import com.raxors.photobooth.data.model.response.ProfileResponse
 
-class IncomingListAdapter(
-    addFriend : (user: ProfileResponse) -> Unit = {},
+class OutgoingListAdapter(
     declineRequest : (user: ProfileResponse) -> Unit = {}
 ) : BasePagingAdapter(
     listOf(
-        IncomingListDelegate(
-            addFriend = addFriend,
+        OutgoingListDelegate(
             declineRequest = declineRequest
         )
     )

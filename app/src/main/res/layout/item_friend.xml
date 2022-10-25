@@ -38,9 +38,11 @@
         android:id="@+id/btn_remove_friend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="16dp"
-        android:src="@drawable/ic_plus"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_close_square"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

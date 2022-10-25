@@ -19,5 +19,5 @@ class LoaderDelegate : AdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder =
         LoaderViewHolder(parent)
 
-    override fun isValidType(postModel: BaseModel): Boolean = postModel is Loader
+    override fun isValidType(model: BaseModel): Boolean = model is Loader
 }

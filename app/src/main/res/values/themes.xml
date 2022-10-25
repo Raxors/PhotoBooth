@@ -3,6 +3,7 @@
     <style name="Base.Theme.PhotoBooth" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="bottomSheetDialogTheme">@style/BottomSheetTheme</item>
     </style>
 
     <style name="Theme.PhotoBooth" parent="Base.Theme.PhotoBooth" />
@@ -20,5 +21,9 @@
     <style name="Theme.PhotoBooth.AppWidgetContainer" parent="Theme.PhotoBooth.AppWidgetContainerParent">
         <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
         <item name="appWidgetPadding">16dp</item>
+    </style>
+
+    <style name="BottomSheetTheme" parent="Theme.Material3.Light.BottomSheetDialog">>
+        <item name="android:windowIsFloating">false</item>
     </style>
 </resources>

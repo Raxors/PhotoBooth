@@ -12,9 +12,11 @@ import com.raxors.photobooth.data.model.response.ProfileResponse
 import com.raxors.photobooth.databinding.ItemFriendBinding
 import com.raxors.photobooth.base.Extensions.Companion.hide
 import com.raxors.photobooth.base.Extensions.Companion.show
+import com.raxors.photobooth.di.BASE_PHOTO_URL
+import com.raxors.photobooth.di.BASE_URL
 
 class FriendListAdapter(
-    val addFriend : (userId: String) -> Unit = {}
+    val removeFriend : (user: ProfileResponse) -> Unit = {}
 ) : PagingDataAdapter<ProfileResponse, FriendListViewHolder>(ProfileResponse.Companion.DiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendListViewHolder {
         return FriendListViewHolder(
@@ -24,14 +26,14 @@ class FriendListAdapter(
     }
 
     override fun onBindViewHolder(holder: FriendListViewHolder, position: Int) {
-        getItem(position)?.let { holder.bind(it, addFriend) }
+        getItem(position)?.let { holder.bind(it, removeFriend) }
     }
 }
 
 class FriendListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val binding = ItemFriendBinding.bind(itemView)
-    fun bind(item: ProfileResponse, addFriend : (userId: String) -> Unit = {}) = with(binding) {
-        Glide.with(itemView).load(item.imagePath).placeholder(R.mipmap.bloom).into(ivPhoto)
+    fun bind(item: ProfileResponse, removeFriend : (user: ProfileResponse) -> Unit = {}) = with(binding) {
+        Glide.with(itemView).load(BASE_PHOTO_URL + item.imagePath).placeholder(R.mipmap.bloom).into(ivPhoto)
         if (item.isFriend) {
             btnRemoveFriend.hide()
         } else {
@@ -39,7 +41,7 @@ class FriendListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
         tvUsername.text = item.username
         btnRemoveFriend.setOnClickListener {
-            item.id?.let { userId -> addFriend(userId) }
+            removeFriend(item)
         }
     }
 }

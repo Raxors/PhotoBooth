@@ -7,6 +7,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.raxors.photobooth.base.BaseViewModel
 import com.raxors.photobooth.data.model.request.AddFriendRequest
+import com.raxors.photobooth.data.model.request.RemoveFriendRequest
 import com.raxors.photobooth.data.model.response.ProfileResponse
 import com.raxors.photobooth.data.repository.friends.FriendsRepository
 import com.raxors.photobooth.data.repository.profile.ProfileRepository
@@ -22,6 +23,7 @@ class FriendListViewModel @Inject constructor(
 
     val userList = MutableLiveData<List<ProfileResponse>>()
     val friendList = MutableLiveData<PagingData<ProfileResponse>>()
+    val removedFriend = MutableLiveData<ProfileResponse>(null)
 
     fun searchUser(username: String) {
 //        launch({
@@ -37,6 +39,15 @@ class FriendListViewModel @Inject constructor(
         launch({
             friendRepo.addFriend(AddFriendRequest(userId))
         })
+    }
+
+    fun removeFriend(user: ProfileResponse) {
+        user.id?.let {
+            launch({
+                friendRepo.removeFriend(RemoveFriendRequest(it))
+                removedFriend.postValue(user)
+            })
+        }
     }
 
     fun refresh() {

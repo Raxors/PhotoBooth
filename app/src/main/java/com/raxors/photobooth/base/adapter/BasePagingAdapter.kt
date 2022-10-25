@@ -4,16 +4,16 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.raxors.photobooth.ui.viewholders.LoaderDelegate
 import com.raxors.photobooth.utils.DEFAULT_INT
 import java.util.*
 
-abstract class BaseAdapter(
-    delegates: List<AdapterDelegate>,
-    clickToAction: () -> Unit = {}
-) : ListAdapter<BaseModel, BaseViewHolder>(BaseDiffUtil()) {
+abstract class BasePagingAdapter(
+    delegates: List<AdapterDelegate>
+) : PagingDataAdapter<BaseModel, BaseViewHolder>(BaseDiffUtil()) {
     private val delegateManager = AdapterDelegateManager()
 
     init {
@@ -40,43 +40,37 @@ abstract class BaseAdapter(
         if (payloads.isEmpty())
             super.onBindViewHolder(holder, position, payloads)
         else
-            holder.bindPayload(getItem(position), holder, payloads[0] as MutableList<Any>)
+            getItem(position)?.let { holder.bindPayload(it, holder, payloads[0] as MutableList<Any>) }
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         Log.d("onBindViewHolder", holder.javaClass.name.toString())
-        holder.bind(getItem(position), holder)
+        getItem(position)?.let { holder.bind(it, holder) }
     }
 
-    override fun getItemViewType(position: Int): Int = delegateManager.getItemViewType(getItem(position))
+    override fun getItemViewType(position: Int): Int = getItem(position)?.let {
+        delegateManager.getItemViewType(it)
+    } ?: DEFAULT_INT
 
-    fun getItemByPosition(position: Int) = if (position != DEFAULT_INT && position < currentList.size) getItem(position) else null
+//    override fun submitList(list: MutableList<BaseModel>?) {
+//        synchronized(currentList) {
+//            super.submitList(list) {
+//                Handler(Looper.getMainLooper()).post { recyclerView.invalidateItemDecorations() }
+//            }
+//        }
+//    }
 
-    fun getItems() = currentList
+//    fun submitItem(item: BaseModel) {
+//        synchronized(currentList) {
+//            super.submitList(mutableListOf<BaseModel>().apply { add(item) })
+//        }
+//    }
 
-    override fun submitList(list: MutableList<BaseModel>?) {
-        synchronized(currentList) {
-            super.submitList(list) {
-                Handler(Looper.getMainLooper()).post { recyclerView.invalidateItemDecorations() }
-            }
-        }
-    }
+//    override fun submitList(list: MutableList<BaseModel>?, commitCallback: Runnable?) {
+//        synchronized(currentList) {
+//            super.submitList(list, commitCallback)
+//        }
+//    }
 
-    fun submitItem(item: BaseModel) {
-        synchronized(currentList) {
-            super.submitList(mutableListOf<BaseModel>().apply { add(item) })
-        }
-    }
-
-    override fun submitList(list: MutableList<BaseModel>?, commitCallback: Runnable?) {
-        synchronized(currentList) {
-            super.submitList(list, commitCallback)
-        }
-    }
-
-    fun isEmpty() = currentList.isEmpty()
-
-    override fun onCurrentListChanged(previousList: MutableList<BaseModel>, currentList: MutableList<BaseModel>) {
-        super.onCurrentListChanged(previousList, currentList)
-    }
+    fun isEmpty() = this.itemCount == 0
 }

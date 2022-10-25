@@ -8,7 +8,7 @@
         android:title="Друзья" />
     <item
         android:id="@+id/main"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:icon="@drawable/ic_camera"
         android:title="Главная" />
     <item
         android:id="@+id/profile"

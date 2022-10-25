@@ -17,15 +17,15 @@
         android:clickable="true"
         android:focusable="true">
 
-        <TextView
-            android:id="@+id/tv_search"
+        <EditText
+            android:id="@+id/et_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/et_main_background"
             android:gravity="center"
+            android:hint="Ищи корешей здесь"
             android:padding="16dp"
             android:paddingEnd="56dp"
-            android:text="Ищи корешей здесь"
             android:textColor="@color/grey"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,6 +38,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:clickable="true"
+            android:focusable="true"
             android:padding="16dp"
             android:src="@drawable/ic_search"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,29 +51,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
-
-        <Button
-            android:id="@+id/btn_incoming"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="Incoming"
-            app:layout_constraintEnd_toStartOf="@+id/btn_outgoing"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_outgoing"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Outgoing"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btn_incoming"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="8dp" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh_layout"
