@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:minHeight="512dp"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_main"
+        android:text="EXIT"
+        android:textColor="@color/white"
+        android:textSize="32sp" />
+
+</FrameLayout>

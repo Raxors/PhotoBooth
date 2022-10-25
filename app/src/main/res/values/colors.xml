@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>-->
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--    <color name="primary_first">#00C8B0</color>-->
+    <color name="primary_first">#92A3FD</color>
+    <color name="primary_second">#9DCEFF</color>
+    <color name="light_grey">#DDDADA</color>
+    <color name="grey">#ADA4A5</color>
+    <color name="dark_grey">#7B6F72</color>
+    <!--    <color name="dark_grey">#394147</color>-->
+
+    <color name="purple">#A48AED</color>
+    <color name="light_purple">#EAECFF</color>
+    <color name="red">#ED4747</color>
+    <color name="light_red">#FFEBEB</color>
+    <color name="yellow">#FCC46F</color>
+    <color name="light_yellow">#FFE8C6</color>
+    <color name="blue">#95CCE3</color>
+    <color name="light_blue">#D8E6EC</color>
+
+    <color name="background">#FFFFFF</color>
+    <color name="border_color">#F7F8F8</color>
+</resources>

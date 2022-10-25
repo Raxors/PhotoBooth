@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Photo Booth</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+
+    <!--  Auth Screen  -->
+    <string name="title_auth">Photo Booth</string>
+    <string name="subtitle_auth">Делись моментами с друзьями</string>
+    <string name="registration">Регистрация</string>
+    <string name="login">Вход</string>
+
+    <!--  Registration Screen  -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="next">Продолжить</string>
+    <string name="name_and_lastname">Имя и Фамилия (необязательно)</string>
+    <string name="status">Статус</string>
+    <string name="join">Присоединяйся</string>
+
+    <!--  Login Screen  -->
+    <string name="welcome_back">С возвращением!</string>
+
+    <!--  Photo Send Screen  -->
+    <string name="photo_send_title">Кому отправим?</string>
+    <string name="photo_history">History</string>
+</resources>
