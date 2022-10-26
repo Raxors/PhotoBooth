@@ -26,7 +26,7 @@
             android:hint="Ищи корешей здесь"
             android:padding="16dp"
             android:paddingEnd="56dp"
-            android:textColor="@color/grey"
+            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

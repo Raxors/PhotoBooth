@@ -25,20 +25,8 @@ class FriendListViewModel @Inject constructor(
     val friendList = MutableLiveData<PagingData<ProfileResponse>>()
     val removedFriend = MutableLiveData<ProfileResponse>(null)
 
-    fun searchUser(username: String) {
-//        launch({
-//            userList.postValue(listOf(profileRepo.searchUser(username)))
-//        })
-    }
-
     fun setFriendList(list: List<ProfileResponse>) {
 //        friendList.addAll(list)
-    }
-
-    fun addFriend(userId: String) {
-        launch({
-            friendRepo.addFriend(AddFriendRequest(userId))
-        })
     }
 
     fun removeFriend(user: ProfileResponse) {

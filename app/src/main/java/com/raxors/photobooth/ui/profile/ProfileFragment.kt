@@ -3,6 +3,7 @@ package com.raxors.photobooth.ui.profile
 import androidx.fragment.app.viewModels
 import com.raxors.photobooth.base.BaseFragment
 import com.raxors.photobooth.databinding.FragmentProfileBinding
+import com.raxors.photobooth.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +17,7 @@ class ProfileFragment: BaseFragment<ProfileViewModel, FragmentProfileBinding>(
         with (binding) {
 
             btnExit.setOnClickListener {
-//                vmMain.logout()
+                (requireActivity() as MainActivity).viewModel.logout()
             }
 
 

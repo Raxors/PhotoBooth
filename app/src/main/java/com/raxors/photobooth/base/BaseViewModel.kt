@@ -3,6 +3,9 @@ package com.raxors.photobooth.base
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.raxors.photobooth.data.repository.auth.AuthRepository
+import com.raxors.photobooth.data.repository.prefs.PrefsRepository
+import com.raxors.photobooth.data.repository.profile.ProfileRepository
 import kotlinx.coroutines.*
 
 

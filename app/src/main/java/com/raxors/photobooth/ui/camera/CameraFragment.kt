@@ -19,18 +19,18 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.raxors.photobooth.R
 import com.raxors.photobooth.base.BaseFragment
 import com.raxors.photobooth.databinding.FragmentCameraBinding
 import com.raxors.photobooth.ui.main.MainFragmentViewModel
+import com.raxors.photobooth.ui.main.Navigate
 import com.raxors.photobooth.ui.photos.PhotoListFragment
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
 import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-
-
-typealias LumaListener = (luma: Double) -> Unit
 
 @AndroidEntryPoint
 class CameraFragment: BaseFragment<MainFragmentViewModel, FragmentCameraBinding>(
@@ -68,10 +68,21 @@ class CameraFragment: BaseFragment<MainFragmentViewModel, FragmentCameraBinding>
 
     override fun initViewModel() {
         super.initViewModel()
+        with(viewModel) {
+            navigate.observe(viewLifecycleOwner) {
+                when (it) {
+                    is Navigate.ToPhotoSend -> {
+                        findNavController().navigate(R.id.photo_send_dest)
+                    }
+                }
+                navigate.postValue(null)
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
+        viewModel.resetSending()
         // Request camera permissions
         if (allPermissionsGranted()) {
 //            if (binding != null)
@@ -178,7 +189,7 @@ class CameraFragment: BaseFragment<MainFragmentViewModel, FragmentCameraBinding>
                 square.compress(Bitmap.CompressFormat.JPEG, 80, stream)
                 val byteArray = stream.toByteArray()
                 val encodedImage: String = encodeToString(byteArray, Base64.NO_WRAP)
-//                viewModel.openPhotoSend(square, encodedImage)
+                viewModel.openPhotoSend(square, encodedImage)
             }
         }
 

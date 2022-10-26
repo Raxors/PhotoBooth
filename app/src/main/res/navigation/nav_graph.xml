@@ -73,4 +73,21 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/camera_dest"
+        android:name="com.raxors.photobooth.ui.camera.CameraFragment"
+        tools:layout="@layout/fragment_camera">
+
+        <action
+            android:id="@+id/to_photo_send"
+            app:destination="@+id/photo_send_dest" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/photo_send_dest"
+        android:name="com.raxors.photobooth.ui.camera.PhotoSendFragment"
+        tools:layout="@layout/fragment_photo_send">
+    </fragment>
+
 </navigation>

@@ -1,7 +1,9 @@
 package com.raxors.photobooth.ui.main
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationBarView
@@ -18,7 +20,7 @@ class MainFragment : BaseFragment<MainFragmentViewModel, FragmentMainBinding>(
     FragmentMainBinding::inflate
 ) {
 
-    override val viewModel by viewModels<MainFragmentViewModel>()
+    override val viewModel by activityViewModels<MainFragmentViewModel>()
 
     private lateinit var viewPager: ViewPager2
 
@@ -59,6 +61,13 @@ class MainFragment : BaseFragment<MainFragmentViewModel, FragmentMainBinding>(
             })
 
             viewPager.setCurrentItem(1, false)
+        }
+    }
+
+    override fun initViewModel() {
+        super.initViewModel()
+        with(viewModel) {
+
         }
     }
 

@@ -2,6 +2,7 @@ package com.raxors.photobooth.data.repository.profile
 
 import com.raxors.photobooth.data.api.PhotoBoothApi
 import com.raxors.photobooth.data.model.response.ProfileResponse
+import com.raxors.photobooth.domain.model.SearchModel
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -14,6 +15,6 @@ class ProfileRepositoryImpl @Inject constructor(
         api.getProfile()
 
     override suspend fun searchUser(username: String) =
-        api.searchUser(username)
+        SearchModel(api.searchUser(username))
 
 }

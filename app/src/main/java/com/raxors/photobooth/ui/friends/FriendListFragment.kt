@@ -4,7 +4,9 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.raxors.photobooth.R
 import com.raxors.photobooth.base.BaseFragment
 import com.raxors.photobooth.databinding.FragmentFriendsBinding
 import com.raxors.photobooth.ui.friends.adapter.FriendListAdapter
@@ -58,7 +60,7 @@ class FriendListFragment : BaseFragment<FriendListViewModel, FragmentFriendsBind
 //                })*/
 //            }
             tvSearch.setOnClickListener {
-
+                findNavController().navigate(R.id.search_dest)
             }
             btnIncoming.setOnClickListener {
                 val incomingDialog = IncomingFragment()
