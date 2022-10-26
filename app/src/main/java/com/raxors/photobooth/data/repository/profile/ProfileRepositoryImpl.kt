@@ -14,6 +14,9 @@ class ProfileRepositoryImpl @Inject constructor(
     override suspend fun getProfile(): ProfileResponse =
         api.getProfile()
 
+    override suspend fun getProfileById(userId: String): ProfileResponse =
+        api.getProfileById(userId)
+
     override suspend fun searchUser(username: String) =
         SearchModel(api.searchUser(username))
 

@@ -1,18 +1,18 @@
 package com.raxors.photobooth.ui.photos
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.raxors.photobooth.R
 import com.raxors.photobooth.base.BaseBottomSheetDialog
 import com.raxors.photobooth.data.model.response.PhotoResponse
 import com.raxors.photobooth.databinding.FragmentPhotoListBinding
 import com.raxors.photobooth.ui.photos.adapter.PhotoListAdapter
+import com.raxors.photobooth.utils.ARGS_ID_USER
+import com.raxors.photobooth.utils.ARGS_URL
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -32,11 +32,10 @@ class PhotoListFragment: BaseBottomSheetDialog<PhotoListViewModel, FragmentPhoto
     }
 
     private fun openImage(photo: PhotoResponse) {
-//        viewModel.openPhoto(photo)
-//        parentFragmentManager.commit {
-//            setReorderingAllowed(true)
-//            replace<PhotoDetailFragment>(R.id.photo_send_container, PhotoListFragment::class.simpleName)
-//        }
+        val bundle = Bundle()
+        bundle.putString(ARGS_ID_USER, photo.ownerId)
+        bundle.putString(ARGS_URL, photo.path)
+        findNavController().navigate(R.id.photo_detail_dest, bundle)
     }
 
     override fun onResume() {

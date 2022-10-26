@@ -7,6 +7,8 @@ interface ProfileRepository {
 
     suspend fun getProfile(): ProfileResponse
 
+    suspend fun getProfileById(userId: String): ProfileResponse
+
     suspend fun searchUser(username: String): BaseModel
 
 }

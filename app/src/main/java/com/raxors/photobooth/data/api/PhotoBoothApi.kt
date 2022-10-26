@@ -15,6 +15,10 @@ interface PhotoBoothApi {
     @RequireAuthorization
     suspend fun getProfile(): ProfileResponse
 
+    @GET("profile/{userId}")
+    @RequireAuthorization
+    suspend fun getProfileById(@Path("userId") userId: String): ProfileResponse
+
     @GET("profile/search/{username}")
     @RequireAuthorization
     suspend fun searchUser(@Path("username") username: String): ProfileResponse
@@ -62,5 +66,11 @@ interface PhotoBoothApi {
         @Query("page") page: Int,
         @Query("size") size: Int
     ): List<PhotoResponse>
+
+    @GET("image/{imageId}")
+    @RequireAuthorization
+    suspend fun getPhotoById(
+        @Path("imageId") imageId: String
+    ): String
 
 }

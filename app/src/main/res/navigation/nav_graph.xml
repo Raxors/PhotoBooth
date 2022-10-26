@@ -90,4 +90,20 @@
         tools:layout="@layout/fragment_photo_send">
     </fragment>
 
+    <dialog
+        android:id="@+id/photo_list_dialog"
+        android:name="com.raxors.photobooth.ui.photos.PhotoListFragment"
+        tools:layout="@layout/fragment_photo_list">
+
+        <action
+            android:id="@+id/to_photo_detail"
+            app:destination="@+id/photo_detail_dest" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/photo_detail_dest"
+        android:name="com.raxors.photobooth.ui.photos.detail.PhotoDetailFragment"
+        tools:layout="@layout/fragment_photo">
+    </fragment>
+
 </navigation>

@@ -6,4 +6,5 @@ interface PhotoRepository {
 
     suspend fun sendPhoto(photoRequest: PhotoRequest)
 
+    suspend fun getPhotoById(photoId: String): String
 }

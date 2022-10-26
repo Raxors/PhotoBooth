@@ -13,4 +13,7 @@ class PhotoRepositoryImpl @Inject constructor(
     override suspend fun sendPhoto(photoRequest: PhotoRequest) =
         api.sendPhoto(photoRequest)
 
+    override suspend fun getPhotoById(photoId: String): String =
+        api.getPhotoById(photoId)
+
 }
