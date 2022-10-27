@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "219037522487",
+    "project_id": "photo-booth-37908",
+    "storage_bucket": "photo-booth-37908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219037522487:android:f40a1e8be4b515e967bdb2",
+        "android_client_info": {
+          "package_name": "com.raxors.photobooth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219037522487-9vmgc45p3l48buto2e8pgkh7i6gk8q8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn0OPi3y3oNvsZ8GDbKIgzwM2-ov-DGiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219037522487-9vmgc45p3l48buto2e8pgkh7i6gk8q8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
