@@ -1,0 +1,22 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+    - release/*
+
+jobs:
+ build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Firebase auth with gcloud
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.FIREBASE_KEY }}
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
