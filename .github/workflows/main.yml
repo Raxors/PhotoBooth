@@ -15,7 +15,7 @@ jobs:
         with:
           java-version: 11
       - name: Firebase auth with gcloud
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@release
         with:
           version: '290.0.1'
           service_account_key: ${{ secrets.FIREBASE_KEY }}
