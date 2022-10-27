@@ -20,11 +20,13 @@ abstract class BaseBottomSheetDialog<VM: BaseViewModel, VB: ViewBinding>(
     private var _binding: VB? = null
     val binding get() = _binding!!
 
+    lateinit var behavior: BottomSheetBehavior<View>
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.setOnShowListener {
             val d = it as BottomSheetDialog
             val bottomSheetInternal = d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            val behavior = BottomSheetBehavior.from(bottomSheetInternal!!)
+            behavior = BottomSheetBehavior.from(bottomSheetInternal!!)
 //            behavior.isFitToContents = false
             behavior.halfExpandedRatio = 0.4f
             behavior.skipCollapsed = true

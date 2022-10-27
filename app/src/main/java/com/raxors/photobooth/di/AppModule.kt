@@ -43,20 +43,20 @@ object AppModule {
         if (!request.isAuthorizationRequired())
             return@Authenticator null
         Log.d(TAG, Gson().toJson(prefsRepo.get().getLoginInfo()))
-        val actualToken = prefsRepo.get().getLoginInfo().takeIf { it.isValid } ?: run {
+        val actualToken = prefsRepo.get().getLoginInfo()/*.takeIf { it.isValid }*/ /*?: run {
             runBlocking { prefsRepo.get().clearLoginInfo() }
             return@Authenticator null
-        }
+        }*/
         return@Authenticator synchronized(this) {
             val newToken: LoginResponse? =
                 if (!actualToken.isValid || response.code == 401)
                     try {
-                        runBlocking { authRepo.refreshAuthToken(actualToken) }
+                        runBlocking { actualToken?.let { authRepo.refreshAuthToken(it) } }
                     } catch (e: Exception) {
                         null
                     }
                 else prefsRepo.get().getLoginInfo()
-            Log.d(TAG, "4")
+            newToken?.let { prefsRepo.get().saveLoginInfo(it) }
             newToken?.takeIf { it.isValid }?.let {
                 request.newBuilder()
                     .header("Authorization", "${it.tokenType} ${it.accessToken}")
@@ -148,6 +148,7 @@ object AppModule {
     }*/
 }
 
-//const val BASE_URL = "http://192.168.0.126:8080/api/v1/"
+//const val BASE_URL = "http://192.168.1.16:8080/api/v1/"
+//const val BASE_PHOTO_URL = "http://192.168.1.16:8080"
 const val BASE_URL = "https://photoboobs.herokuapp.com/api/v1/"
 const val BASE_PHOTO_URL = "https://photoboobs.herokuapp.com"

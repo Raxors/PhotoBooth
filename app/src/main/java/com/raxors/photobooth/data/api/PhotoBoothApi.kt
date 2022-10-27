@@ -73,4 +73,8 @@ interface PhotoBoothApi {
         @Path("imageId") imageId: String
     ): String
 
+    @GET("image/last")
+    @RequireAuthorization
+    suspend fun getLastImage(): PhotoResponse
+
 }

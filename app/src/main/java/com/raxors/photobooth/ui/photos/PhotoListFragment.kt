@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class PhotoListFragment: BaseBottomSheetDialog<PhotoListViewModel, FragmentPhotoListBinding>(
     FragmentPhotoListBinding::inflate,
-    BottomSheetBehavior.STATE_HALF_EXPANDED
+    BottomSheetBehavior.STATE_EXPANDED
 ) {
 
     override val viewModel by viewModels<PhotoListViewModel>()
@@ -38,16 +38,10 @@ class PhotoListFragment: BaseBottomSheetDialog<PhotoListViewModel, FragmentPhoto
         findNavController().navigate(R.id.photo_detail_dest, bundle)
     }
 
-    override fun onResume() {
-        super.onResume()
-//        viewModel.getPhotoList()
-    }
-
     override fun initView() {
         with(binding) {
             rvPhotoList.layoutManager = GridLayoutManager(context, 3)
             rvPhotoList.adapter = adapter
-//            it.rvPhotoList.addItemDecoration(SpacesItemDecoration(8))
         }
     }
 
@@ -57,7 +51,6 @@ class PhotoListFragment: BaseBottomSheetDialog<PhotoListViewModel, FragmentPhoto
             viewLifecycleOwner.lifecycleScope.launch {
                 getPhotoList().observe(viewLifecycleOwner) {
                     adapter.submitData(lifecycle, it)
-//                    binding.refreshLayout.isRefreshing = false
                 }
             }
         }
