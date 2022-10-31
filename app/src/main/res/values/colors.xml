@@ -29,4 +29,6 @@
 
     <color name="background">#FFFFFF</color>
     <color name="border_color">#F7F8F8</color>
+
+    <color name="color_primary">#ffb69df8</color>
 </resources>

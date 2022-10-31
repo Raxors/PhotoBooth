@@ -12,6 +12,7 @@ import com.raxors.photobooth.base.BaseFragment
 import com.raxors.photobooth.databinding.FragmentMainBinding
 import com.raxors.photobooth.ui.camera.CameraFragment
 import com.raxors.photobooth.ui.friends.FriendListFragment
+import com.raxors.photobooth.ui.photos.PhotoListFragment
 import com.raxors.photobooth.ui.profile.ProfileFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,8 +35,12 @@ class MainFragment : BaseFragment<MainFragmentViewModel, FragmentMainBinding>(
                 viewPager.currentItem = 1
                 return@OnItemSelectedListener true
             }
-            R.id.profile -> {
+            R.id.history -> {
                 viewPager.currentItem = 2
+                return@OnItemSelectedListener true
+            }
+            R.id.profile -> {
+                viewPager.currentItem = 3
                 return@OnItemSelectedListener true
             }
             else -> return@OnItemSelectedListener false
@@ -55,7 +60,8 @@ class MainFragment : BaseFragment<MainFragmentViewModel, FragmentMainBinding>(
                     when (position) {
                         0 -> topNavView.menu.findItem(R.id.friends).isChecked = true
                         1 -> topNavView.menu.findItem(R.id.main).isChecked = true
-                        2 -> topNavView.menu.findItem(R.id.profile).isChecked = true
+                        2 -> topNavView.menu.findItem(R.id.history).isChecked = true
+                        3 -> topNavView.menu.findItem(R.id.profile).isChecked = true
                     }
                 }
             })
@@ -72,12 +78,13 @@ class MainFragment : BaseFragment<MainFragmentViewModel, FragmentMainBinding>(
     }
 
     private inner class ScreenSlidePagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
-        override fun getItemCount(): Int = 3
+        override fun getItemCount(): Int = 4
 
         override fun createFragment(position: Int): Fragment =
             when (position) {
                 0 -> FriendListFragment()
                 1 -> CameraFragment()
+                2 -> PhotoListFragment()
                 else -> ProfileFragment()
             }
     }

@@ -57,10 +57,10 @@ class CameraFragment: BaseFragment<MainFragmentViewModel, FragmentCameraBinding>
             it.btnFlipCamera.setOnClickListener {
                 flipCamera()
             }
-            it.btnPhotoList.setOnClickListener {
+            /*it.btnPhotoList.setOnClickListener {
                 val photosDialog = PhotoListFragment()
                 photosDialog.show(parentFragmentManager, "TAG")
-            }
+            }*/
         }
 
 //        viewModel.getFriends()

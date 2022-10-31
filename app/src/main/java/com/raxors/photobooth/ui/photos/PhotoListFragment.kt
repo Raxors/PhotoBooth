@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.raxors.photobooth.R
 import com.raxors.photobooth.base.BaseBottomSheetDialog
+import com.raxors.photobooth.base.BaseFragment
 import com.raxors.photobooth.data.model.response.PhotoResponse
 import com.raxors.photobooth.databinding.FragmentPhotoListBinding
 import com.raxors.photobooth.ui.photos.adapter.PhotoListAdapter
@@ -18,9 +19,8 @@ import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class PhotoListFragment: BaseBottomSheetDialog<PhotoListViewModel, FragmentPhotoListBinding>(
-    FragmentPhotoListBinding::inflate,
-    BottomSheetBehavior.STATE_EXPANDED
+class PhotoListFragment: BaseFragment<PhotoListViewModel, FragmentPhotoListBinding>(
+    FragmentPhotoListBinding::inflate
 ) {
 
     override val viewModel by viewModels<PhotoListViewModel>()
