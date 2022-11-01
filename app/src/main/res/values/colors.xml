@@ -31,4 +31,5 @@
     <color name="border_color">#F7F8F8</color>
 
     <color name="color_primary">#ffb69df8</color>
+    <color name="color_disabled">#e2e2e2</color>
 </resources>

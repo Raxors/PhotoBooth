@@ -2,8 +2,6 @@ package com.raxors.photobooth.ui.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationBarView
@@ -13,7 +11,6 @@ import com.raxors.photobooth.databinding.FragmentMainBinding
 import com.raxors.photobooth.ui.camera.CameraFragment
 import com.raxors.photobooth.ui.friends.FriendListFragment
 import com.raxors.photobooth.ui.photos.PhotoListFragment
-import com.raxors.photobooth.ui.profile.ProfileFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,10 +36,10 @@ class MainFragment : BaseFragment<MainFragmentViewModel, FragmentMainBinding>(
                 viewPager.currentItem = 2
                 return@OnItemSelectedListener true
             }
-            R.id.profile -> {
-                viewPager.currentItem = 3
-                return@OnItemSelectedListener true
-            }
+//            R.id.profile -> {
+//                viewPager.currentItem = 3
+//                return@OnItemSelectedListener true
+//            }
             else -> return@OnItemSelectedListener false
         }
     }
@@ -61,7 +58,7 @@ class MainFragment : BaseFragment<MainFragmentViewModel, FragmentMainBinding>(
                         0 -> topNavView.menu.findItem(R.id.friends).isChecked = true
                         1 -> topNavView.menu.findItem(R.id.main).isChecked = true
                         2 -> topNavView.menu.findItem(R.id.history).isChecked = true
-                        3 -> topNavView.menu.findItem(R.id.profile).isChecked = true
+//                        3 -> topNavView.menu.findItem(R.id.profile).isChecked = true
                     }
                 }
             })
@@ -78,14 +75,14 @@ class MainFragment : BaseFragment<MainFragmentViewModel, FragmentMainBinding>(
     }
 
     private inner class ScreenSlidePagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
-        override fun getItemCount(): Int = 4
+        override fun getItemCount(): Int = 3
 
         override fun createFragment(position: Int): Fragment =
             when (position) {
                 0 -> FriendListFragment()
                 1 -> CameraFragment()
-                2 -> PhotoListFragment()
-                else -> ProfileFragment()
+                else -> PhotoListFragment()
+//                else -> ProfileFragment()
             }
     }
 

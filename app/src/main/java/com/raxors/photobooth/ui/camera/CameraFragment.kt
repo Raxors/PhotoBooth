@@ -25,7 +25,6 @@ import com.raxors.photobooth.base.BaseFragment
 import com.raxors.photobooth.databinding.FragmentCameraBinding
 import com.raxors.photobooth.ui.main.MainFragmentViewModel
 import com.raxors.photobooth.ui.main.Navigate
-import com.raxors.photobooth.ui.photos.PhotoListFragment
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
 import java.util.*
@@ -56,6 +55,9 @@ class CameraFragment: BaseFragment<MainFragmentViewModel, FragmentCameraBinding>
         binding.let {
             it.btnFlipCamera.setOnClickListener {
                 flipCamera()
+            }
+            it.ivProfile.setOnClickListener {
+                findNavController().navigate(R.id.profile_dest)
             }
             /*it.btnPhotoList.setOnClickListener {
                 val photosDialog = PhotoListFragment()
@@ -192,16 +194,10 @@ class CameraFragment: BaseFragment<MainFragmentViewModel, FragmentCameraBinding>
                 viewModel.openPhotoSend(square, encodedImage)
             }
         }
-
-        override fun onError(exception: ImageCaptureException) {
-            super.onError(exception)
-
-        }
     }
 
     companion object {
         private const val TAG = "CameraXApp"
-        private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS =
             mutableListOf (

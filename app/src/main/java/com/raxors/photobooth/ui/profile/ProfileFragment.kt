@@ -19,7 +19,9 @@ class ProfileFragment: BaseFragment<ProfileViewModel, FragmentProfileBinding>(
             btnExit.setOnClickListener {
                 (requireActivity() as MainActivity).viewModel.logout()
             }
-
+            ivBack.setOnClickListener {
+                back()
+            }
 
         }
         viewModel.getProfile()

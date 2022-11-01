@@ -82,6 +82,16 @@
             android:id="@+id/to_photo_send"
             app:destination="@+id/photo_send_dest" />
 
+        <action
+            android:id="@+id/to_profile"
+            app:destination="@+id/profile_dest" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile_dest"
+        android:name="com.raxors.photobooth.ui.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile">
     </fragment>
 
     <fragment
