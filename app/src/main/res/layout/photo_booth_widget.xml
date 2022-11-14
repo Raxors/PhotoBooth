@@ -1,12 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.PhotoBooth.AppWidget.Container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.PhotoBooth.AppWidgetContainer"
     android:layout_marginHorizontal="6dp"
-    android:padding="0dp">
+    android:theme="@style/Theme.PhotoBooth.AppWidgetContainer">
 
     <ImageView
         android:id="@+id/iv_photo_widget"

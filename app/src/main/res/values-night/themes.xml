@@ -5,4 +5,22 @@
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="bottomSheetDialogTheme">@style/BottomSheetTheme</item>
     </style>
+    <style name="Theme.PhotoBooth.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">16dp</item>
+    </style>
+
+    <style name="Theme.PhotoBooth.AppWidgetContainer" parent="Theme.PhotoBooth.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">0dp</item>
+    </style>
+
+    <style name="BottomSheetTheme" parent="Theme.Material3.Light.BottomSheetDialog">>
+        <item name="android:windowIsFloating">false</item>
+    </style>
 </resources>
