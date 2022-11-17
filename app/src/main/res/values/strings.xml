@@ -25,4 +25,7 @@
     <!--  Photo Send Screen  -->
     <string name="photo_send_title">Кому отправим?</string>
     <string name="photo_history">History</string>
+
+    <string name="google_client_id">564417512742-99n19ljcakm106gt1klsja68sgiq8h0d.apps.googleusercontent.com</string>
+    <string name="google_client_id_my">219037522487-9vmgc45p3l48buto2e8pgkh7i6gk8q8f.apps.googleusercontent.com</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.raxors.photobooth.data.repository.auth
 
 import com.raxors.photobooth.data.api.AuthApi
+import com.raxors.photobooth.data.model.request.GoogleLoginRequest
 import com.raxors.photobooth.data.model.request.LoginRequest
 import com.raxors.photobooth.data.model.request.RegistrationRequest
 import com.raxors.photobooth.data.model.response.LoginResponse
@@ -20,5 +21,8 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun refreshAuthToken(token: LoginResponse): LoginResponse =
         api.refreshAuthToken("${token.tokenType} ${token.refreshToken}")
+
+    override suspend fun googleLogin(googleLoginRequest: GoogleLoginRequest): LoginResponse =
+        api.googleLogin(googleLoginRequest)
 
 }

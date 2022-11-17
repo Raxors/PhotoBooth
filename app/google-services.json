@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "219037522487-206cl7ikpj7qlaecehmdb0nel4v3dbl3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raxors.photobooth",
+            "certificate_hash": "b4eebd0ca54fce71b37f44318680a644ea606a4b"
+          }
+        },
+        {
           "client_id": "219037522487-9vmgc45p3l48buto2e8pgkh7i6gk8q8f.apps.googleusercontent.com",
           "client_type": 3
         }

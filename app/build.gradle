@@ -10,6 +10,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/raxors/upload-keystore.jks')
+            storePassword '3TqEE9De'
+            keyAlias 'upload'
+            keyPassword '3TqEE9De'
+        }
+        release {
+            storeFile file('/Users/raxors/upload-keystore.jks')
+            storePassword '3TqEE9De'
+            keyAlias 'upload'
+            keyPassword '3TqEE9De'
+        }
+    }
     namespace 'com.raxors.photobooth'
     compileSdk 33
 
@@ -27,6 +41,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -71,10 +86,14 @@ dependencies {
 
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
 
     //Hilt
     implementation 'com.google.dagger:hilt-android:2.44'
     kapt 'com.google.dagger:hilt-compiler:2.44'
+    implementation 'androidx.hilt:hilt-common:1.0.0'
+    implementation 'androidx.hilt:hilt-work:1.0.0'
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.14.2'
@@ -110,6 +129,10 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.0.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+
+    //Google
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
 
     //Tests
     testImplementation 'junit:junit:4.13.2'

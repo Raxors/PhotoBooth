@@ -11,7 +11,6 @@ import androidx.paging.map
 import com.raxors.photobooth.base.BaseViewModel
 import com.raxors.photobooth.base.adapter.BaseModel
 import com.raxors.photobooth.data.model.request.PhotoRequest
-import com.raxors.photobooth.data.model.response.ProfileResponse
 import com.raxors.photobooth.data.repository.friends.FriendsRepository
 import com.raxors.photobooth.data.repository.image.PhotoRepository
 import com.raxors.photobooth.ui.camera.adapter.CheckFriendModel

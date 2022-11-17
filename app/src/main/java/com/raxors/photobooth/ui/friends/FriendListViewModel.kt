@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.raxors.photobooth.base.BaseViewModel
-import com.raxors.photobooth.data.model.request.AddFriendRequest
 import com.raxors.photobooth.data.model.request.RemoveFriendRequest
 import com.raxors.photobooth.data.model.response.ProfileResponse
 import com.raxors.photobooth.data.repository.friends.FriendsRepository

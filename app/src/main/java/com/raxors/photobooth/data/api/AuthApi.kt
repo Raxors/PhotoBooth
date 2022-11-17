@@ -1,5 +1,6 @@
 package com.raxors.photobooth.data.api
 
+import com.raxors.photobooth.data.model.request.GoogleLoginRequest
 import com.raxors.photobooth.data.model.request.LoginRequest
 import com.raxors.photobooth.data.model.request.RegistrationRequest
 import com.raxors.photobooth.data.model.response.LoginResponse
@@ -16,4 +17,7 @@ interface AuthApi {
 
     @GET("auth/refreshToken")
     suspend fun refreshAuthToken(@Header("Authorization") token: String): LoginResponse
+
+    @POST("auth/google/token")
+    suspend fun googleLogin(@Body googleLoginRequest: GoogleLoginRequest): LoginResponse
 }

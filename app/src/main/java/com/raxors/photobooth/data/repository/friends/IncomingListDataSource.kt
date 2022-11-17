@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.raxors.photobooth.base.adapter.BaseModel
 import com.raxors.photobooth.data.api.PhotoBoothApi
-import com.raxors.photobooth.data.model.response.ProfileResponse
 import com.raxors.photobooth.domain.model.IncomingListModel
 
 class IncomingListDataSource(

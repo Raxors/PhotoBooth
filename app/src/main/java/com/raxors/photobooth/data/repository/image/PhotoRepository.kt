@@ -10,4 +10,8 @@ interface PhotoRepository {
     suspend fun getPhotoById(photoId: String): String
 
     suspend fun getLastImage(): PhotoResponse
+
+    companion object {
+
+    }
 }

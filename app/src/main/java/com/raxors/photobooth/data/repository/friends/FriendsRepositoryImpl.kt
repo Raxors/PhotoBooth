@@ -9,9 +9,7 @@ import com.raxors.photobooth.base.adapter.BaseModel
 import com.raxors.photobooth.data.api.PhotoBoothApi
 import com.raxors.photobooth.data.model.request.AddFriendRequest
 import com.raxors.photobooth.data.model.request.RemoveFriendRequest
-import com.raxors.photobooth.data.model.response.ProfileResponse
 import com.raxors.photobooth.data.repository.prefs.PrefsRepository
-import com.raxors.photobooth.domain.model.IncomingListModel
 import com.raxors.photobooth.utils.LIMIT_DEFAULT
 import javax.inject.Inject
 import javax.inject.Singleton
